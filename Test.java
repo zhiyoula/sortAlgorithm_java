@@ -1,3 +1,5 @@
+package com.bot.test;
+
 public class Test {
 
     public static void main(String[] args) {
@@ -9,7 +11,10 @@ public class Test {
 //      String array_str[]={"F","G","SFS","SWFWEF"};
 //      Test.base_function_for(array_str);
         Sort m_sort=new Sort();
-        m_sort.maopao(array_int);
+        //调用冒泡排序
+        //m_sort.maopao(array_int);
+        //调用选择排序
+        m_sort.xuanze(array_int);
     }
     public static void base_function_for(String[] array){
         for (int i=1;i<array.length;i++){
@@ -39,6 +44,33 @@ class Sort{
                     array[t]=array[t+1];
                     array[t+1]=temp;
                 }
+            }
+        }
+        //调用for方法，输出数组内的值
+        Test.base_function_for(array);
+    }
+    //选择排序
+    public void xuanze(int[] array){
+        //设置中间变量
+        int temp_v=0;
+        //循环外层数组，从0开始
+        for (int i=0;i<array.length;i++){
+            //设置最小下标
+            int temp_k=i;
+            //循环内层数组，从1开始
+            for (int t=i+1;t<array.length;t++){
+                //如果内层数组的当前元素值大于外层元素的当前元素值
+                if (array[t]<array[temp_k]){
+                    //记录内层元素的下标为最小下标
+                    temp_k=t;
+                }
+            }
+            //如果最小元素不是外层数组的当前元素
+            if (temp_k!=i){
+                //对换外层数组的当前元素和最小元素的位置
+                temp_v=array[i];
+                array[i]=array[temp_k];
+                array[temp_k]=temp_v;   
             }
         }
         //调用for方法，输出数组内的值
